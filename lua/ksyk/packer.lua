@@ -34,7 +34,6 @@ return require('packer').startup(function(use)
     use 'L3MON4D3/LuaSnip'
 
     use 'SirVer/ultisnips'
-    use 'quangnguyen30192/cmp-nvim-ultisnips'
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -49,6 +48,4 @@ return require('packer').startup(function(use)
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
         }
     }
-
-    use 'christoomey/vim-tmux-navigator'
 end)
