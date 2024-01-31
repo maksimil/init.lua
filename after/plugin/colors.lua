@@ -5,7 +5,7 @@ function ThemeDark()
 end
 
 function ThemeLight()
-    vim.cmd('colorscheme base16-atelier-cave-light')
+    vim.cmd('colorscheme base16-gruvbox-light-hard')
 end
 
 ThemeDark()

@@ -15,7 +15,17 @@ return require('packer').startup(function(use)
 
     use 'chriskempson/base16-vim'
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+        requires = "nvim-treesitter/nvim-treesitter",
+    }
+    use {
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` brankh for the latest features
+        config = function() require("nvim-surround").setup({}) end
+    }
 
     use 'mbbill/undotree'
 
@@ -48,4 +58,7 @@ return require('packer').startup(function(use)
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
         }
     }
+
+    use 'ggandor/leap.nvim'
+    use 'folke/twilight.nvim'
 end)

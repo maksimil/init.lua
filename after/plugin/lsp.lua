@@ -75,7 +75,7 @@ cmp.setup({
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select_opts),
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select_opts),
         ['<C-Space>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+        ['<Tab>'] = cmp_action.luasnip_jump_forward(),
+        ['<S-Tab>'] = cmp_action.luasnip_jump_backward(),
     }
 })
