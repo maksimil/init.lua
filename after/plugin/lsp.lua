@@ -53,6 +53,10 @@ end)
 
 lsp.setup()
 
+require("lspconfig").clangd.setup({
+    cmd = { "clangd", "--enable-config", "--query-driver=/usr/bin/g++" }
+})
+
 -- cmp setup with snippets
 
 local cmp = require('cmp')
@@ -70,6 +74,7 @@ cmp.setup({
         { name = 'buffer' },
         { name = 'path' },
         { name = 'luasnip' },
+        { name = 'orgmode' },
     },
     mapping = {
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select_opts),
@@ -79,3 +84,12 @@ cmp.setup({
         ['<S-Tab>'] = cmp_action.luasnip_jump_backward(),
     }
 })
+
+vim.g.zig_fmt_autosave = 0
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+});

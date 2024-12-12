@@ -61,4 +61,9 @@ return require('packer').startup(function(use)
 
     use 'ggandor/leap.nvim'
     use 'folke/twilight.nvim'
+
+    use { 'nvim-orgmode/orgmode', config = function()
+        require('orgmode').setup {}
+    end
+    }
 end)
